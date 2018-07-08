@@ -9,7 +9,7 @@
 
 # Jenkins and Docker
 
-Example how to create docker image from your application created from react boilerplate. 
+Example how to create docker image from your application created from <a href="https://www.reactboilerplate.com/">  react boilerplate</a>. 
 
 Dockerfile is a multistage build that as a results creates an image of just few MB in size created from busybox. All build files are located in /html folder.
 
