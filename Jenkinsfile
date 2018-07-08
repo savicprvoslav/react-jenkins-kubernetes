@@ -8,6 +8,6 @@ pipeline {
     }
   }
   environment {
-    DOCKER_CRED = 'credentials("DOCKER_CRED")'
+    DOCKER_CRED = credentials("docker-hub")
   }
 }
