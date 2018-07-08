@@ -1,5 +1,17 @@
-node {
-    checkout scm
-    def customImage = docker.build("my-image:${env.BUILD_ID}")
-    customImage.push()
-}
+pipeline {
+  agent {
+    dockerfile {
+      filename 'Dockerfile'
+    }
+
+  }
+  stages {
+    when {
+        branch 'master'
+        }
+      steps {
+        withDockerRegistry([ credentialsId: "docker-hub", url: "" ]) {
+          sh 'docker push pscode/react-jenkins-kuberntes:latest'
+        }
+      }
+  }
