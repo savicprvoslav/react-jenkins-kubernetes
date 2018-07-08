@@ -1,15 +1,5 @@
-pipeline {
-  agent {
-    dockerfile {
-      filename 'Dockerfile'
-    }
-
-  }
-  stages {
-    stage('push') {
-      steps {
-        echo 'Test'
-      }
-    }
-  }
+node {
+    checkout scm
+    def customImage = docker.build("my-image:${env.BUILD_ID}")
+    customImage.push()
 }
