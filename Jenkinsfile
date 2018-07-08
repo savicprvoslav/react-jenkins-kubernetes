@@ -3,7 +3,7 @@ pipeline {
   stages {
     stage('push') {
       steps {
-        sh 'docker build . -t pscode/react:${env.BRANCH_NAME}${env.BUILD_ID}'
+        sh 'docker build . -t pscode/react:${BRANCH_NAME}${BUILD_ID}'
         sh 'printenv'
       }
     }
