@@ -1,15 +1,9 @@
 pipeline {
-  agent {
-    dockerfile {
-      filename 'Dockerfile'
-      label 'my-defined-label'
-    }
-
-  }
+  agent any
   stages {
     stage('push') {
       steps {
-        echo 'Test'
+        sh 'docker build . -t pscode/test'
       }
     }
   }
